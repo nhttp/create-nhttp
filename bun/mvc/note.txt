@@ -1,0 +1,12 @@
+Install First : 
+  bun install
+
+Run Dev : 
+  bun run dev
+
+Run Prod : 
+  bun run start
+
+Welcome to template-mvc, lookup url available :
+  GET http://localhost:8000/
+  GET http://localhost:8000/user

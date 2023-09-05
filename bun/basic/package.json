@@ -1,0 +1,20 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "basic template for nhttp",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch main.ts",
+    "start": "bun run main.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nhttp-land": "^<VERSION>",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "bun-types": "canary"
+  }
+}

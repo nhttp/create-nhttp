@@ -1,0 +1,9 @@
+Run Dev : 
+  deno task dev
+
+Run Prod : 
+  deno task start
+
+Welcome to template-mvc, lookup url available :
+  GET http://localhost:8000/
+  GET http://localhost:8000/user

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "nhttp": "https://deno.land/x/nhttp@<VERSION>/mod.ts",
+    "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/",
+    "react": "https://esm.sh/react@18.0.0",
+    "react/": "https://esm.sh/react@18.0.0/",
+    "react-dom/": "https://esm.sh/react-dom@18.0.0/",
+    "hydrate": "./_core/hydrate.ts",
+    "ssr": "./_core/ssr.ts",
+    "components/": "./components/"
+  }
+}

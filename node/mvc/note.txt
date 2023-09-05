@@ -1,0 +1,12 @@
+Install First : 
+  npm install
+
+Run Dev : 
+  npm run dev
+
+Run Prod : 
+  npm run start
+
+Welcome to template-mvc, lookup url available :
+  GET http://localhost:8000/
+  GET http://localhost:8000/user

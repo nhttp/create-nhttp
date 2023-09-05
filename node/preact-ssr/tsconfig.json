@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "ssr": ["./_core/ssr.ts"],
+      "hydrate": ["./_core/hydrate.ts"],
+      "components/*": ["./components/*"]
+    },
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "DOM.Iterable",
+      "ESNext"
+    ]
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "./node_modules/**/*",
+    "**/*.spec.ts"
+  ]
+}

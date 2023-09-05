@@ -1,0 +1,13 @@
+Install First : 
+  npm install
+
+Run Dev : 
+  npm run dev
+
+Run Prod : 
+  npm run start
+
+Welcome to template-basic, lookup url available :
+  GET http://localhost:8000/api/v1
+  GET http://localhost:8000/api/v1/user
+  POST http://localhost:8000/api/v1/user

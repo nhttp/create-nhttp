@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "ssr": ["./_core/ssr.ts"],
+      "hydrate": ["./_core/hydrate.ts"],
+      "components/*": ["./components/*"]
+    },
+    "types": ["bun-types"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "lib": [
+      "dom",
+      "DOM.Iterable",
+      "ESNext"
+    ]
+  }
+}

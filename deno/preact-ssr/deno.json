@@ -1,0 +1,22 @@
+{
+  "tasks": {
+    "dev": "deno run -A ./_core/dev.ts && deno run -A --watch main.ts --dev",
+    "start": "deno run -A main.ts",
+    "build": "deno run -A ./_core/gen.ts && deno run -A ./_core/build.ts"
+  },
+  "importMap": "./import_map.json",
+  "fmt": {
+    "exclude": ["build", "_core"]
+  },
+  "lint": {
+    "exclude": ["build"]
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "lib": [
+      "deno.window",
+      "dom"
+    ]
+  }
+}

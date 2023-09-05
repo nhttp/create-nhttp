@@ -1,0 +1,24 @@
+{
+  "name": "create-nhttp",
+  "version": "0.0.2",
+  "description": "An Simple CLI for NHttp",
+  "type": "module",
+  "bin": {
+    "create-nhttp": "index.js"
+  },
+  "author": "herudi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhttp/create-nhttp.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/prompts": "^2.4.4"
+  }
+}

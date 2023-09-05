@@ -1,0 +1,20 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "basic template for nhttp",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false main.ts",
+    "start": "tsx --no-cache main.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nhttp-land": "^<VERSION>",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "tsx": "^3.12.7"
+  }
+}
