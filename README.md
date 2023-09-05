@@ -18,12 +18,6 @@ npm create nhttp@latest
 deno run -A npm:create-nhttp@latest
 ```
 
-### Bun
-
-```bash
-bun create nhttp/create-nhttp
-```
-
 ### Templates
 
 - Basic (basic nhttp starter).
