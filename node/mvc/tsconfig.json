@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "paths": {
+      "models/*": ["./models/*"],
+      "views/*": ["./views/*"],
+      "controllers/*": ["./controllers/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "allowImportingTsExtensions": true,

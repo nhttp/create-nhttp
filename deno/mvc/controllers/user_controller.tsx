@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Status } from "nhttp/controller.ts";
-import UserModel from "../models/user_model.ts";
-import { UserView } from "../views/user_view.tsx";
+import UserModel from "models/user_model.ts";
+import { UserView } from "views/user_view.tsx";
 import { RequestEvent } from "nhttp";
 
 const users = [] as UserModel[];

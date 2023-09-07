@@ -1,6 +1,6 @@
 {
   "name": "create-nhttp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An Simple CLI for NHttp",
   "type": "module",
   "bin": {

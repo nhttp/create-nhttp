@@ -1,6 +1,6 @@
-import { Helmet } from "nhttp/jsx.ts";
+import { FC, Helmet } from "nhttp/jsx.ts";
 
-export default function Layout(props: { children: JSX.Element }) {
+const Layout: FC = (props) => {
   return (
     <>
       <Helmet>
@@ -9,4 +9,6 @@ export default function Layout(props: { children: JSX.Element }) {
       {props.children}
     </>
   );
-}
+};
+
+export default Layout;

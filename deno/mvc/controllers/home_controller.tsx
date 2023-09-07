@@ -1,5 +1,5 @@
 import { Controller, Get } from "nhttp/controller.ts";
-import { HomeView } from "../views/home_view.tsx";
+import { HomeView } from "views/home_view.tsx";
 
 @Controller("/")
 class HomeController {

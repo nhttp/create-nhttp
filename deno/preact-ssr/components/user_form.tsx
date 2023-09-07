@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { type JSX } from "preact";
 import { withHydrate } from "hydrate";
 import { type FC } from "nhttp/jsx.ts";
+import "nhttp/jsx/twind.ts";
 
 export type User = {
   first_name: string;
@@ -82,8 +83,18 @@ const UserForm: FC<{ users: User[] }> = (props) => {
         </div>
       </form>
       <div className="mt-10">
-        {users.map((user) => {
-          return <li>{user.first_name} {user.last_name}</li>;
+        {users.map((user, i) => {
+          const fullname = user.first_name + " " + user.last_name;
+          return (
+            <li className="mt-5" key={i}>
+              <a
+                className="text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                href={`/user/${fullname}`}
+              >
+                {fullname}
+              </a>
+            </li>
+          );
         })}
       </div>
     </>

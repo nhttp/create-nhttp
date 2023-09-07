@@ -1,7 +1,7 @@
 import { renderToHtml } from "nhttp-land/jsx";
 import { NHttp, TApp } from "nhttp-land";
-import HomeController from "./controllers/home_controller.tsx";
-import UserController from "./controllers/user_controller.tsx";
+import HomeController from "controllers/home_controller.tsx";
+import UserController from "controllers/user_controller.tsx";
 import { useTwind } from "nhttp-land/jsx/twind";
 
 export default class Application extends NHttp {

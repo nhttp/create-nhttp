@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { withHydrate } from "hydrate";
 import { FC } from "nhttp-land/jsx";
+import "nhttp-land/jsx/twind";
 
 export type User = {
   first_name: string;
@@ -81,7 +82,17 @@ const UserForm: FC<{ users: User[] }> = (props) => {
       </form>
       <div className="mt-10">
         {users.map((user, i) => {
-          return <li key={i}>{user.first_name} {user.last_name}</li>;
+          const fullname = user.first_name + " " + user.last_name;
+          return (
+            <li className="mt-5" key={i}>
+              <a
+                className="text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                href={`/user/${fullname}`}
+              >
+                {fullname}
+              </a>
+            </li>
+          );
         })}
       </div>
     </>

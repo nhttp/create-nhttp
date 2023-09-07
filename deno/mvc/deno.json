@@ -5,7 +5,10 @@
   },
   "imports": {
     "nhttp": "https://deno.land/x/nhttp@<VERSION>/mod.ts",
-    "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/"
+    "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/",
+    "models/": "./models/",
+    "views/": "./views/",
+    "controllers/": "./controllers/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

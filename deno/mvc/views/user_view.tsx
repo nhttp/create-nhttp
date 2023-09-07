@@ -1,5 +1,5 @@
 import { FC, Helmet } from "nhttp/jsx.ts";
-import UserModel from "../models/user_model.ts";
+import UserModel from "models/user_model.ts";
 
 export const UserView: FC<{ title: string; users: UserModel[] }> = (props) => {
   return (
