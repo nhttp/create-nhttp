@@ -100,7 +100,7 @@ function editFile(file, callback) {
   }
 }
 
-export async function createProject(param, cwd, env) {
+export async function createProject(param, cwd) {
   const argv = minimist(param.slice(2), { string: ["_"] });
   const argTargetDir = formatTargetDir(argv._[0]);
   const argTemplate = argv.template || argv.t;
