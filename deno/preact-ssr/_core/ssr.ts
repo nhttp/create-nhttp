@@ -88,16 +88,7 @@ export class SSRApp extends NHttp {
     super(opts);
     this.use(
       "/assets",
-      serveStatic("public", {
-        setHeaders(rev) {
-          if (config.cacheControl) {
-            rev.response.setHeader(
-              "cache-control",
-              config.cacheControl,
-            );
-          }
-        },
-      }),
+      serveStatic("public", { etag: true }),
     );
     if (isBuild) {
       this.use(
