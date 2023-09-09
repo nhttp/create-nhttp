@@ -1,8 +1,9 @@
 import { FC, Helmet } from "nhttp-land/jsx";
+import Layout from "components/layout.tsx";
 
 export const HomeView: FC<{ title: string }> = (props) => {
   return (
-    <>
+    <Layout>
       <Helmet>
         <title>{props.title}</title>
       </Helmet>
@@ -13,6 +14,6 @@ export const HomeView: FC<{ title: string }> = (props) => {
           Go to url <a href="/user" class="text-blue-800">/user</a>
         </p>
       </div>
-    </>
+    </Layout>
   );
 };

@@ -8,7 +8,8 @@
     "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/",
     "models/": "./models/",
     "views/": "./views/",
-    "controllers/": "./controllers/"
+    "controllers/": "./controllers/",
+    "components/": "./components/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

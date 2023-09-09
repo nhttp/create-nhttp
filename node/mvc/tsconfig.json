@@ -3,7 +3,8 @@
     "paths": {
       "models/*": ["./models/*"],
       "views/*": ["./views/*"],
-      "controllers/*": ["./controllers/*"]
+      "controllers/*": ["./controllers/*"],
+      "components/*": ["./components/*"]
     },
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,

@@ -1,15 +1,20 @@
 import { renderToHtml } from "nhttp-land/jsx";
+import { serveStatic } from "nhttp-land/serve-static";
 import { NHttp, TApp } from "nhttp-land";
 import HomeController from "controllers/home_controller.tsx";
 import UserController from "controllers/user_controller.tsx";
-import { useTwind } from "nhttp-land/jsx/twind";
+import { install, useTwind } from "nhttp-land/jsx/twind";
+
+// twind ssr
+install({ hash: (c) => c });
+useTwind();
 
 export default class Application extends NHttp {
   constructor(options?: TApp) {
     super(options);
 
-    // tailwind
-    useTwind();
+    // assets
+    this.use("/assets", serveStatic("public", { etag: true }));
 
     // engine jsx
     this.engine(renderToHtml);

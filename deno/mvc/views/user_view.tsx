@@ -1,9 +1,10 @@
 import { FC, Helmet } from "nhttp/jsx.ts";
 import UserModel from "models/user_model.ts";
+import Layout from "components/layout.tsx";
 
 export const UserView: FC<{ title: string; users: UserModel[] }> = (props) => {
   return (
-    <>
+    <Layout>
       <Helmet>
         <title>{props.title}</title>
       </Helmet>
@@ -75,6 +76,6 @@ export const UserView: FC<{ title: string; users: UserModel[] }> = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
