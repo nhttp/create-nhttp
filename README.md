@@ -6,6 +6,8 @@ An Simple CLI for creating nhttp-project.
 
 > Still In Alpha. PRs Wellcome :).
 
+Doc => https://nhttp.deno.dev/docs/cli
+
 ### Npm
 
 ```bash
@@ -15,7 +17,7 @@ npm create nhttp@latest
 ### Deno
 
 ```bash
-deno run -A npm:create-nhttp@latest
+deno run -Ar npm:create-nhttp
 ```
 
 ### Templates

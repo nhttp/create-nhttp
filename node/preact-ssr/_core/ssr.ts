@@ -230,7 +230,7 @@ export const dynamicRoute = async (
     const route = await getRouteFromDir(config.routeDirName);
     for (const key in route) {
       const mod = (await import(url + route[key]))?.default;
-      if (typeof mod === "object") {
+      if (typeof mod === "object" && mod.pop === void 0) {
         for (const method in mod) {
           app.on(method, key, mod[method]);
         }

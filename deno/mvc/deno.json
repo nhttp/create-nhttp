@@ -13,6 +13,6 @@
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "https://esm.sh/nhttp-land@<VERSION>/jsx"
+    "jsxImportSource": "https://esm.sh/v132/nhttp-land@<VERSION>/jsx"
   }
 }

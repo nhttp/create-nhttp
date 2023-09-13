@@ -10,6 +10,8 @@ import denoTemplate from "./templates/deno.js";
 import nodeTemplate from "./templates/node.js";
 import bunTemplate from "./templates/bun.js";
 
+const NHTTP_VERSION = "1.3.10";
+
 const RUNTIME_LIST = [
   {
     name: "deno",
@@ -40,12 +42,15 @@ const defaultTargetDir = "nhttp-project";
 
 async function getLatestVersion() {
   try {
-    const res = await fetch("https://apiland.deno.dev/v2/modules/nhttp");
+    const res = await fetch("https://registry.npmjs.org/nhttp-land");
     const json = await res.json();
-    return json.latest_version;
+    return json["dist-tags"].latest;
   } catch (err) {
-    console.error(err);
-    return null;
+    const mess = err?.message ?? "Something went wrong";
+    console.error(red(`${mess} or no internet connection.`));
+    console.log(red(`force nhttp version ${NHTTP_VERSION}.`));
+    console.log();
+    return NHTTP_VERSION;
   }
 }
 
@@ -213,9 +218,6 @@ export async function createProject(param, cwd) {
     note = fs.readFileSync(targetPath, { encoding: "utf8", flag: "r" });
   }
   const version = await getLatestVersion();
-  if (version === null) {
-    throw new Error("failure to fetch get latest version");
-  }
   const pNames = genPackageName(runtimeName);
   pNames.forEach((name) => {
     editFile(path.resolve(root, name), (content) => {

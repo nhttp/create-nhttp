@@ -112,9 +112,6 @@ export class SSRApp extends NHttp {
           start(controller) {
             controller.enqueue(`data: reload\nretry: 100\n\n`);
           },
-          cancel(err) {
-            console.log(err || "Error ReadableStream");
-          },
         }).pipeThrough(new TextEncoderStream());
       });
       this.get(`/dev.${tt}.js`, (rev) => {
@@ -233,7 +230,7 @@ export const dynamicRoute = async (
     const route = await getRouteFromDir(config.routeDirName);
     for (const key in route) {
       const mod = (await import(url + route[key]))?.default;
-      if (typeof mod === "object") {
+      if (typeof mod === "object" && mod.pop === void 0) {
         for (const method in mod) {
           app.on(method, key, mod[method]);
         }

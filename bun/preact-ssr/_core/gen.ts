@@ -13,7 +13,7 @@ function findCustomPath(key: string) {
   if (key[1] === "_") return key.slice(2);
 }
 const gen = (app: TAny, path: string, mod: TAny) => {
-  if (typeof mod === "object") {
+  if (typeof mod === "object" && mod.pop === void 0) {
     for (const method in mod) {
       app.on(method, path, mod[method]);
     }
