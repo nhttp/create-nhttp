@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch --clear-screen=false main.ts",
-    "start": "tsx --no-cache main.ts"
+    "start": "tsx --no-cache main.ts",
+    "build": "tsx build",
   },
   "author": "",
   "license": "MIT",
