@@ -23,5 +23,3 @@ if (!isEmptyObj(STORE)) {
 } else {
   console.log("Success build. with no hydration components");
 }
-
-Deno.exit(1);
