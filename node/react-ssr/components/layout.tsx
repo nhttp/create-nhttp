@@ -1,7 +1,7 @@
 import { Helmet } from "nhttp-land/jsx";
-import { type FC } from "react";
+import { type FC, type JSX } from "react";
 
-const Layout: FC = (props) => {
+const Layout: FC<{ children?: JSX.Element[] }> = (props) => {
   return (
     <>
       <Helmet>
