@@ -1,4 +1,5 @@
-import { FC, Helmet } from "nhttp/jsx.ts";
+import { Helmet } from "nhttp/jsx.ts";
+import { type FunctionComponent as FC } from "preact";
 
 const Layout: FC = (props) => {
   return (

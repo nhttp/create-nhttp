@@ -1,5 +1,4 @@
-import { FC } from "nhttp-land/jsx";
-import { createElement } from "react";
+import { createElement, type FC } from "react";
 import { createRoot } from "react-dom/client";
 
 type TAny = any;

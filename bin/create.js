@@ -10,7 +10,7 @@ import denoTemplate from "./templates/deno.js";
 import nodeTemplate from "./templates/node.js";
 import bunTemplate from "./templates/bun.js";
 
-const NHTTP_VERSION = "1.3.10";
+const NHTTP_VERSION = "1.3.13";
 
 const RUNTIME_LIST = [
   {

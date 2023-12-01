@@ -1,5 +1,5 @@
 import esbuild from "esbuild";
-import { Helmet, options, renderToHtml } from "nhttp-land/jsx";
+import { Helmet, n, options, renderToHtml } from "nhttp-land/jsx";
 import { serveStatic } from "nhttp-land/serve-static";
 import { renderToString } from "react-dom/server";
 import { NHttp, RequestEvent, TApp } from "nhttp-land";
@@ -80,7 +80,7 @@ const setHeader = (rev: RequestEvent) => {
 export class SSRApp extends NHttp {
   #cache: Record<string, {
     entry: Record<string, string>;
-    src: string[];
+    src: JSX.Element[];
     route: Record<string, boolean>;
     stat?: number;
   }> = {};
@@ -112,9 +112,6 @@ export class SSRApp extends NHttp {
           start(controller) {
             controller.enqueue(`data: reload\nretry: 100\n\n`);
           },
-          cancel(err) {
-            console.log(err || "Error ReadableStream");
-          },
         }).pipeThrough(new TextEncoderStream());
       });
       this.get(`/dev.${tt}.js`, (rev) => {
@@ -139,12 +136,12 @@ export class SSRApp extends NHttp {
       src = this.#cache[key].src = this.#getSource(
         elem,
         key,
-      ) as string[];
-      if (isDev) src = [`<script src="/dev.${tt}.js"></script>`].concat(src);
+      );
+      if (isDev) src = [n("script", { src: `/dev.${tt}.js` })].concat(src);
       if (src.length) {
         const last = Helmet.writeFooterTag?.() ?? [];
         Helmet.writeFooterTag = () => [
-          ...src as string[],
+          ...src,
           ...last,
         ];
         if (this.#cache[key].stat === undefined && isBuild === false) {
@@ -157,7 +154,8 @@ export class SSRApp extends NHttp {
   }
   #findNode = (elem: JSX.Element) => {
     let arr = [] as TAny;
-    let childs = elem.props?.children ?? [];
+    // deno-lint-ignore no-explicit-any
+    let childs = (elem.props as any)?.children ?? [];
     if (!childs.pop) childs = [childs];
     for (let i = 0; i < childs.length; i++) {
       const child = childs[i];
@@ -174,18 +172,25 @@ export class SSRApp extends NHttp {
     const main = fn?.meta_url;
     let src: TAny[] = [];
     if (main) {
-      const props = elem.props;
+      // deno-lint-ignore no-explicit-any
+      const props = elem.props as any;
       if (!isEmptyObj(props)) {
         if (props?.children) props.children = void 0;
-        src.push(
-          `<script id="p-${fn.hash}" type="application/json">${
-            JSON.stringify(props)
-          }</script>`,
-        );
+        src.push(n("script", {
+          type: "application/json",
+          id: `p-${fn.hash}`,
+          dangerouslySetInnerHTML: {
+            __html: JSON.stringify(props),
+          },
+        }));
       }
       const name = `${fn.hash}.${tt}`;
       const path = `/${name}.js`;
-      src.push(`<script type="module" src="/app${path}" async></script>`);
+      src.push(n("script", {
+        type: "module",
+        src: `/app${path}`,
+        async: true,
+      }));
       if (this.#cache[key].route[path] === void 0) {
         this.#cache[key].entry[name] = fn.meta_url;
       }

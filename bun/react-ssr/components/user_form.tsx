@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { withHydrate } from "hydrate";
-import { FC } from "nhttp-land/jsx";
 import "nhttp-land/jsx/twind";
 
 export type User = {

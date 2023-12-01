@@ -1,5 +1,4 @@
-import { FC } from "nhttp/jsx.ts";
-import { createElement } from "react";
+import { createElement, type FC } from "react";
 import { createRoot } from "react-dom/client";
 
 // deno-lint-ignore no-explicit-any

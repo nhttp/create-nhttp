@@ -1,8 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 import { useEffect, useRef, useState } from "preact/hooks";
-import { type JSX } from "preact";
+import { type FunctionComponent as FC, type JSX } from "preact";
 import { withHydrate } from "hydrate";
-import { type FC } from "nhttp/jsx.ts";
 import "nhttp/jsx/twind.ts";
 
 export type User = {

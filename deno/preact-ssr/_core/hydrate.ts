@@ -1,5 +1,4 @@
-import { FC } from "nhttp/jsx.ts";
-import { h, render } from "preact";
+import { type FunctionComponent as FC, h, render } from "preact";
 
 // deno-lint-ignore no-explicit-any
 type TAny = any;
