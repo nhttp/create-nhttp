@@ -1,5 +1,11 @@
 import esbuild from "esbuild";
-import { Helmet, n, options, renderToHtml } from "nhttp-land/jsx";
+import {
+  Helmet,
+  type JSXElement,
+  n,
+  options,
+  renderToHtml,
+} from "nhttp-land/jsx";
 import { serveStatic } from "nhttp-land/serve-static";
 import { renderToString } from "preact-render-to-string";
 import { NHttp, RequestEvent, TApp } from "nhttp-land";
@@ -77,7 +83,7 @@ const setHeader = (rev: RequestEvent) => {
 export class SSRApp extends NHttp {
   #cache: Record<string, {
     entry: Record<string, string>;
-    src: JSX.Element[];
+    src: JSXElement[];
     route: Record<string, boolean>;
     stat?: number;
   }> = {};
@@ -116,11 +122,10 @@ export class SSRApp extends NHttp {
         return `(() => {let bool = false; new EventSource("/__REFRESH__").addEventListener("message", _ => {if (bool) location.reload(); else bool = true;});})();`;
       });
     }
-    options.onRenderElement = (elem, rev) => {
+    options.onRenderElement = async (elem, rev) => {
       const key = isBuild
         ? "NHTTP_BUILD_PACK"
         : rev.method + (rev.route.path ?? rev.path).toString();
-      Helmet.render = renderToString as TAny;
       const body = renderToString(elem);
       let src = this.#cache[key]?.src;
       if (src === void 0) {
@@ -131,7 +136,7 @@ export class SSRApp extends NHttp {
         };
       }
       src = this.#cache[key].src = this.#getSource(
-        elem,
+        elem as JSXElement,
         key,
       );
       if (isDev) src = [n("script", { src: `/dev.${tt}.js` })].concat(src);
@@ -142,17 +147,16 @@ export class SSRApp extends NHttp {
           ...last,
         ];
         if (this.#cache[key].stat === undefined && isBuild === false) {
-          return this.#bundle(key).then(() => body);
+          await this.#bundle(key);
         }
       }
       return body;
     };
     this.engine(renderToHtml);
   }
-  #findNode = (elem: JSX.Element) => {
+  #findNode = (elem: JSXElement) => {
     let arr = [] as TAny;
-    // deno-lint-ignore no-explicit-any
-    let childs = (elem.props as any)?.children ?? [];
+    let childs = (elem.props as TAny)?.children ?? [];
     if (!childs.pop) childs = [childs];
     for (let i = 0; i < childs.length; i++) {
       const child = childs[i];
@@ -164,7 +168,7 @@ export class SSRApp extends NHttp {
     }
     return arr;
   };
-  #getSource = (elem: JSX.Element, key: string) => {
+  #getSource = (elem: JSXElement, key: string) => {
     const fn = elem.type as TAny;
     const main = fn?.meta_url;
     let src: TAny[] = [];
@@ -192,7 +196,7 @@ export class SSRApp extends NHttp {
         this.#cache[key].entry[name] = fn.meta_url;
       }
     } else {
-      const arr: JSX.Element[] = this.#findNode(elem);
+      const arr: JSXElement[] = this.#findNode(elem);
       arr.forEach((elem) => {
         src = src.concat(this.#getSource(elem, key));
       });

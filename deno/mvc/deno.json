@@ -5,6 +5,7 @@
   },
   "imports": {
     "nhttp": "https://deno.land/x/nhttp@<VERSION>/mod.ts",
+    "nhttp/jsx-runtime": "https://deno.land/x/nhttp@<VERSION>/lib/jsx/jsx-runtime.ts",
     "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/",
     "models/": "./models/",
     "views/": "./views/",
@@ -12,7 +13,7 @@
     "components/": "./components/"
   },
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "https://esm.sh/v132/nhttp-land@<VERSION>/jsx"
+    "jsx": "precompile",
+    "jsxImportSource": "nhttp"
   }
 }
