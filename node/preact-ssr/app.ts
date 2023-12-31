@@ -1,7 +1,6 @@
 import { dynamicRoute, SSRApp } from "ssr";
-import { install, useTwind } from "nhttp-land/jsx/twind";
+import { useTwind } from "nhttp-land/jsx/twind";
 
-install({ hash: (c) => c });
 useTwind();
 
 const app = new SSRApp();

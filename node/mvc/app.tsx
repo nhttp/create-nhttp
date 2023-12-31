@@ -3,10 +3,8 @@ import { serveStatic } from "nhttp-land/serve-static";
 import { NHttp, TApp } from "nhttp-land";
 import HomeController from "controllers/home_controller.tsx";
 import UserController from "controllers/user_controller.tsx";
-import { install, useTwind } from "nhttp-land/jsx/twind";
+import { useTwind } from "nhttp-land/jsx/twind";
 
-// twind ssr
-install({ hash: (c) => c });
 useTwind();
 
 export default class Application extends NHttp {

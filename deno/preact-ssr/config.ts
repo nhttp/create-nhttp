@@ -4,7 +4,6 @@ export default <Config> {
   esbuild: {
     entryPoints: {
       preact_hooks: "preact/hooks",
-      twind: "nhttp/jsx/twind.ts",
     },
   },
   routeDirName: "routes",
