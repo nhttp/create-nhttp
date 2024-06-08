@@ -1,17 +1,17 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.19.2/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.1/mod.ts";
+import * as esbuild from "esbuild";
+import { denoPlugins } from "@luca/esbuild-deno-loader";
 import {
   Helmet,
   type JSXElement,
   n,
   options,
   renderToHtml,
-} from "nhttp/jsx.ts";
-import serveStatic from "nhttp/serve-static.ts";
+} from "@nhttp/nhttp/jsx";
+import serveStatic from "@nhttp/nhttp/serve-static";
 import { renderToString } from "react-dom/server";
-import { NHttp, RequestEvent, TApp } from "nhttp";
-import { tt as timestamps } from "./hydrate.ts";
-import { getRouteFromDir } from "nhttp/file-router.ts";
+import { NHttp, RequestEvent, TApp, TRet } from "@nhttp/nhttp";
+import { tt as timestamps } from "@nhttp/hydrate";
+import { getRouteFromDir } from "@nhttp/nhttp/file-router";
 import createRouter from "./router.ts";
 import config from "../config.ts";
 
@@ -40,10 +40,11 @@ if (isDev === false) {
     tt = parseInt(Deno.readTextFileSync("build/build_id.txt"));
   } catch { /* noop */ }
 }
-config.esbuild.entryPoints["hydrate"] = "hydrate";
+config.esbuild.entryPoints["@nhttp/hydrate"] = "@nhttp/hydrate";
 if (config.esbuild.entryPoints["react"] === void 0) {
   config.esbuild.entryPoints["react"] = "react";
 }
+const realPath = await Deno.realPath("./deno.json");
 export const configEsbuild: esbuild.BuildOptions = {
   absWorkingDir: Deno.cwd(),
   format: "esm",
@@ -60,9 +61,7 @@ export const configEsbuild: esbuild.BuildOptions = {
   minify: true,
   splitting: true,
   outdir: ".",
-  plugins: denoPlugins({
-    importMapURL: new URL("./../import_map.json", import.meta.url).href,
-  }),
+  plugins: denoPlugins({ configPath: realPath }),
   jsx: "automatic",
   jsxImportSource: "react",
   ...config.esbuild,
@@ -94,12 +93,12 @@ export class SSRApp extends NHttp {
     super(opts);
     this.use(
       "/assets",
-      serveStatic("public", { etag: true }),
+      serveStatic(new URL("../public", import.meta.url), { etag: true }),
     );
     if (isBuild) {
       this.use(
         "/app",
-        serveStatic("build", {
+        serveStatic(new URL("../build", import.meta.url), {
           setHeaders(rev) {
             if (config.cacheControl) {
               rev.response.setHeader(
@@ -129,7 +128,7 @@ export class SSRApp extends NHttp {
       const key = isBuild
         ? "NHTTP_BUILD_PACK"
         : rev.method + (rev.route.path ?? rev.path).toString();
-      const body = renderToString(elem);
+      const body = renderToString(elem as TRet);
       let src = this.#cache[key]?.src;
       if (src === void 0) {
         this.#cache[key] = {

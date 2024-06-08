@@ -1,4 +1,4 @@
-import nhttp from "nhttp-land";
+import nhttp from "@nhttp/nhttp";
 import homeRouter from "./router/home_router.ts";
 import userRouter from "./router/user_router.ts";
 

@@ -1,4 +1,4 @@
-import { FC, Helmet } from "nhttp-land/jsx";
+import { FC, Helmet } from "@nhttp/nhttp/jsx";
 import Layout from "components/layout.tsx";
 
 export const HomeView: FC<{ title: string }> = (props) => {

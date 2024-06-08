@@ -3,6 +3,9 @@ Install First :
 
 Run Dev : 
   npm run dev
+  
+Run Build : 
+  npm run build
 
 Run Prod : 
   npm run start

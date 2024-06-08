@@ -2,23 +2,27 @@
   "name": "react-ssr",
   "version": "1.0.0",
   "description": "react-ssr template for nhttp",
-  "main": "main.js",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx ./_core/dev.ts && tsx watch --clear-screen=false main.ts --dev",
-    "build": "tsx --no-cache ./_core/gen.ts && tsx --no-cache ./_core/build.ts",
-    "start": "tsx --no-cache main.ts"
+    "dev": "tsx watch --clear-screen=false ./src/main.ts --dev",
+    "build:client": "node ./dist/_core/gen.js && node ./dist/_core/build.js",
+    "build": "rimraf dist && tsc && resolve-tspaths && npm run build:client",
+    "start": "node ./dist/main.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nhttp-land": "^<VERSION>",
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "tsx": "^3.12.7"
+    "resolve-tspaths": "^0.8.19",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.11.2",
+    "typescript": "^5.4.5"
   }
 }

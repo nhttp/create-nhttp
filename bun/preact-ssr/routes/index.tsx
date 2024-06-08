@@ -1,6 +1,6 @@
 import Counter from "components/counter.tsx";
-import { Helmet } from "nhttp-land/jsx";
-import { type RequestEvent } from "nhttp-land";
+import { Helmet } from "@nhttp/nhttp/jsx";
+import { type RequestEvent } from "@nhttp/nhttp";
 import Layout from "components/layout.tsx";
 
 export default function home(rev: RequestEvent) {

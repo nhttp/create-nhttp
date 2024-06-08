@@ -1,11 +1,9 @@
-import { renderToHtml } from "nhttp-land/jsx";
-import { serveStatic } from "nhttp-land/serve-static";
-import { NHttp, TApp } from "nhttp-land";
+import { renderToHtml } from "@nhttp/nhttp/jsx";
+import { serveStatic } from "@nhttp/nhttp/serve-static";
+import { NHttp, TApp } from "@nhttp/nhttp";
 import HomeController from "controllers/home_controller.tsx";
 import UserController from "controllers/user_controller.tsx";
-import { useTwind } from "nhttp-land/jsx/twind";
-
-useTwind();
+import { twind } from "@nhttp/nhttp/jsx/twind";
 
 export default class Application extends NHttp {
   constructor(options?: TApp) {
@@ -15,7 +13,7 @@ export default class Application extends NHttp {
     this.use("/assets", serveStatic("public", { etag: true }));
 
     // engine jsx
-    this.engine(renderToHtml);
+    this.engine(renderToHtml).use(twind());
 
     // register controllers
     this.use([

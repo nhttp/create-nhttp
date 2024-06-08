@@ -1,10 +1,14 @@
-import { FC, Helmet, useScript } from "nhttp/jsx.ts";
+import { FC, Helmet, useScript } from "@nhttp/nhttp/jsx";
 import UserModel from "models/user_model.ts";
 import Layout from "components/layout.tsx";
 
-type FCUser = { title: string; users: UserModel[]; csrf: string };
+type User = {
+  title: string;
+  users: UserModel[];
+  csrf: string;
+};
 
-export const UserView: FC<FCUser> = (props) => {
+export const UserView: FC<User> = (props) => {
   useScript(() => {
     document.getElementById("first_name")?.focus();
   });

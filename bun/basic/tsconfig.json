@@ -2,6 +2,10 @@
   "compilerOptions": {
     "types": ["bun-types"],
     "allowImportingTsExtensions": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "module": "ES2022",
+    "noEmit": true,
     "skipLibCheck": true
   }
 }

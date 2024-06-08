@@ -1,4 +1,4 @@
-import type { Config } from "ssr";
+import type { Config } from "@nhttp/ssr";
 
 export default <Config> {
   esbuild: {

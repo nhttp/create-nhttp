@@ -1,4 +1,4 @@
-import nhttp from "nhttp";
+import nhttp from "@nhttp/nhttp";
 
 const homeRouter = nhttp.Router();
 

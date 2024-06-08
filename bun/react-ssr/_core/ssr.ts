@@ -4,12 +4,12 @@ import {
   n,
   options,
   renderToHtml,
-} from "nhttp-land/jsx";
-import { serveStatic } from "nhttp-land/serve-static";
+} from "@nhttp/nhttp/jsx";
+import { serveStatic } from "@nhttp/nhttp/serve-static";
 import { renderToString } from "react-dom/server";
-import { NHttp, RequestEvent, TApp } from "nhttp-land";
+import { NHttp, RequestEvent, TApp } from "@nhttp/nhttp";
 import { tt as timestamps } from "./hydrate.ts";
-import { getRouteFromDir } from "nhttp-land/file-router";
+import { getRouteFromDir } from "@nhttp/nhttp/file-router";
 import createRouter from "./router.ts";
 import config from "../config.ts";
 import fs from "node:fs";
@@ -39,7 +39,7 @@ if (isDev === false) {
     tt = parseInt(fs.readFileSync("build/build_id.txt", { encoding: "utf-8" }));
   } catch { /* noop */ }
 }
-config.esbuild.entryPoints["hydrate"] = "./_core/hydrate.ts";
+config.esbuild.entryPoints["@nhttp/hydrate"] = "@nhttp/hydrate";
 if (config.esbuild.entryPoints["react"] === void 0) {
   config.esbuild.entryPoints["react"] = "react";
 }
@@ -93,12 +93,12 @@ export class SSRApp extends NHttp {
     super(opts);
     this.use(
       "/assets",
-      serveStatic("public", { etag: true }),
+      serveStatic(new URL("../public", import.meta.url), { etag: true }),
     );
     if (isBuild) {
       this.use(
         "/app",
-        serveStatic("build", {
+        serveStatic(new URL("../build", import.meta.url), {
           setHeaders(rev) {
             if (config.cacheControl) {
               rev.response.setHeader(
@@ -128,7 +128,7 @@ export class SSRApp extends NHttp {
       const key = isBuild
         ? "NHTTP_BUILD_PACK"
         : rev.method + (rev.route.path ?? rev.path).toString();
-      const body = renderToString(elem);
+      const body = renderToString(elem as any);
       let src = this.#cache[key]?.src;
       if (src === void 0) {
         this.#cache[key] = {

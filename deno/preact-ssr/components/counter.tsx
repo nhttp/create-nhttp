@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { withHydrate } from "hydrate";
+import { withHydrate } from "@nhttp/hydrate";
 
 const Counter = () => {
   const [count, setCount] = useState(0);

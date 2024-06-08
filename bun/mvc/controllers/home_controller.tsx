@@ -1,4 +1,4 @@
-import { Controller, Get } from "nhttp-land/controller";
+import { Controller, Get } from "@nhttp/nhttp/controller";
 import { HomeView } from "views/home_view.tsx";
 
 @Controller("/")

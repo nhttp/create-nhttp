@@ -2,18 +2,22 @@
   "name": "mvc",
   "version": "1.0.0",
   "description": "mvc template for nhttp",
-  "main": "main.js",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --clear-screen=false main.ts",
-    "start": "tsx --no-cache main.ts"
+    "dev": "tsx watch --clear-screen=false ./src/main.ts",
+    "build": "rimraf dist && tsc && resolve-tspaths",
+    "start": "node ./dist/main.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nhttp-land": "^<VERSION>"
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>"
   },
   "devDependencies": {
-    "tsx": "^3.12.7"
+    "resolve-tspaths": "^0.8.19",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.11.2",
+    "typescript": "^5.4.5"
   }
 }

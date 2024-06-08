@@ -1,9 +1,9 @@
-import { dynamicRoute, SSRApp } from "ssr";
-import { useTwind } from "nhttp/jsx/twind.ts";
-
-useTwind();
+import { dynamicRoute, SSRApp } from "@nhttp/ssr";
+import { twind } from "@nhttp/nhttp/jsx/twind";
 
 const app = new SSRApp();
+
+app.use(twind());
 
 await dynamicRoute(app, import.meta.url);
 

@@ -7,9 +7,24 @@
       "components/*": ["./components/*"]
     },
     "types": ["bun-types"],
-    "experimentalDecorators": true,
     "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "module": "ES2022",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "nhttp-land/jsx"
-  }
+    "jsxImportSource": "@nhttp/nhttp/jsx",
+    "outDir": "dist",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "./node_modules/**/*",
+    "**/*.spec.ts"
+  ]
 }

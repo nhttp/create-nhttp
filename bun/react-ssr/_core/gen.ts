@@ -1,4 +1,4 @@
-import { getRouteFromDir } from "nhttp-land/file-router";
+import { getRouteFromDir } from "@nhttp/nhttp/file-router";
 import config from "../config.ts";
 import fs from "node:fs";
 

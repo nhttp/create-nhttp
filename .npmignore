@@ -1,3 +1,6 @@
 /node_modules
 /test-folder
 package-lock.json
+deno.lock
+bun.lockb
+/dev.js

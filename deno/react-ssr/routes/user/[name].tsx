@@ -1,5 +1,5 @@
-import { Helmet } from "nhttp/jsx.ts";
-import { type RequestEvent } from "nhttp";
+import { Helmet } from "@nhttp/nhttp/jsx";
+import { type RequestEvent } from "@nhttp/nhttp";
 import Layout from "components/layout.tsx";
 
 export default function userByName(rev: RequestEvent) {

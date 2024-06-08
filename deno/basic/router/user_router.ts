@@ -1,5 +1,5 @@
-import nhttp from "nhttp";
-import validate, { z } from "nhttp/zod-validator.ts";
+import nhttp from "@nhttp/nhttp";
+import validate, { z } from "@nhttp/zod";
 
 const users = ["john", "doe"];
 const UserSchema = z.object({

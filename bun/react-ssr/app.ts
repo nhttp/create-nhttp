@@ -1,5 +1,5 @@
-import { dynamicRoute, SSRApp } from "ssr";
-import { useTwind } from "nhttp-land/jsx/twind";
+import { dynamicRoute, SSRApp } from "@nhttp/ssr";
+import { useTwind } from "@nhttp/nhttp/jsx/twind";
 
 useTwind();
 

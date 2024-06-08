@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
     "paths": {
-      "ssr": ["./_core/ssr.ts"],
-      "hydrate": ["./_core/hydrate.ts"],
+      "@nhttp/ssr": ["./_core/ssr.ts"],
+      "@nhttp/hydrate": ["./_core/hydrate.ts"],
       "components/*": ["./components/*"]
     },
     "types": ["bun-types"],
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
-    "target": "esnext",
-    "module": "esnext",
+    "noEmit": true,
+    "target": "ESNext",
+    "module": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "lib": [
-      "dom",
+      "DOM",
       "DOM.Iterable",
       "ESNext"
     ]

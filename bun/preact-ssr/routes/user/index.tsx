@@ -1,7 +1,7 @@
-import { Helmet } from "nhttp-land/jsx";
+import { Helmet } from "@nhttp/nhttp/jsx";
 import UserForm from "components/user_form.tsx";
 import { users } from "../api/user/index.ts";
-import { type RequestEvent } from "nhttp-land";
+import { type RequestEvent } from "@nhttp/nhttp";
 import Layout from "components/layout.tsx";
 
 export default function user(rev: RequestEvent) {

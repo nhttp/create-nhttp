@@ -10,7 +10,7 @@ import denoTemplate from "./templates/deno.js";
 import nodeTemplate from "./templates/node.js";
 import bunTemplate from "./templates/bun.js";
 
-const NHTTP_VERSION = "1.3.13";
+const NHTTP_VERSION = "2.0.0";
 
 const RUNTIME_LIST = [
   {
@@ -42,9 +42,9 @@ const defaultTargetDir = "nhttp-project";
 
 async function getLatestVersion() {
   try {
-    const res = await fetch("https://registry.npmjs.org/nhttp-land");
+    const res = await fetch("https://jsr.io/@nhttp/nhttp/meta.json");
     const json = await res.json();
-    return json["dist-tags"].latest;
+    return json.latest;
   } catch (err) {
     const mess = err?.message ?? "Something went wrong";
     console.error(red(`${mess} or no internet connection.`));

@@ -4,7 +4,7 @@
     "start": "deno run -A main.ts"
   },
   "imports": {
-    "nhttp": "https://deno.land/x/nhttp@<VERSION>/mod.ts",
-    "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/"
+    "@nhttp/nhttp": "jsr:@nhttp/nhttp@<VERSION>",
+    "@nhttp/zod": "jsr:@nhttp/zod@<VERSION>"
   }
 }

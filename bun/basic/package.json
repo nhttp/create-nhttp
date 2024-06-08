@@ -11,8 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nhttp-land": "^<VERSION>",
-    "zod": "^3.22.2"
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>",
+    "@nhttp/zod": "npm:@jsr/nhttp__zod@<VERSION>"
   },
   "devDependencies": {
     "bun-types": "canary"

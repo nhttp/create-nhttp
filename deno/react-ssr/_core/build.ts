@@ -1,6 +1,6 @@
 import "../app.ts";
-import { STORE } from "hydrate";
-import { configEsbuild, esbuild, isEmptyObj } from "ssr";
+import { STORE } from "@nhttp/hydrate";
+import { configEsbuild, esbuild, isEmptyObj } from "@nhttp/ssr";
 try {
   await Deno.remove("build", { recursive: true });
 } catch { /* noop */ }

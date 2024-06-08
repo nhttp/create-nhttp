@@ -1,4 +1,4 @@
-import { type RequestEvent } from "nhttp";
+import { type RequestEvent } from "@nhttp/nhttp";
 import { type User } from "components/user_form.tsx";
 
 export const users = [] as User[];

@@ -4,7 +4,17 @@
     "start": "deno run -A main.ts",
     "build": "deno run -A ./_core/gen.ts && deno run -A ./_core/build.ts"
   },
-  "importMap": "./import_map.json",
+  "imports": {
+    "@nhttp/nhttp": "jsr:@nhttp/nhttp@<VERSION>",
+    "react": "https://esm.sh/v132/react@18.2.0",
+    "react/": "https://esm.sh/v132/react@18.2.0/",
+    "react-dom/": "https://esm.sh/v132/react-dom@18.2.0/",
+    "@nhttp/hydrate": "./_core/hydrate.ts",
+    "@nhttp/ssr": "./_core/ssr.ts",
+    "components/": "./components/",
+    "esbuild": "https://deno.land/x/esbuild@v0.21.4/mod.js",
+    "@luca/esbuild-deno-loader": "jsr:@luca/esbuild-deno-loader@^0.10.3"
+  },
   "fmt": {
     "exclude": ["build", "_core"]
   },

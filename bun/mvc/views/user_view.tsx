@@ -1,4 +1,4 @@
-import { FC, Helmet, useScript } from "nhttp-land/jsx";
+import { FC, Helmet, useScript } from "@nhttp/nhttp/jsx";
 import UserModel from "models/user_model.ts";
 import Layout from "components/layout.tsx";
 

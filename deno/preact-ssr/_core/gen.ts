@@ -1,4 +1,4 @@
-import { getRouteFromDir } from "nhttp/file-router.ts";
+import { getRouteFromDir } from "@nhttp/nhttp/file-router";
 import config from "../config.ts";
 
 async function buildRoutes() {

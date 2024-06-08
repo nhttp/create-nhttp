@@ -4,16 +4,19 @@
     "start": "deno run -A main.ts"
   },
   "imports": {
-    "nhttp": "https://deno.land/x/nhttp@<VERSION>/mod.ts",
-    "nhttp/jsx-runtime": "https://deno.land/x/nhttp@<VERSION>/lib/jsx/jsx-runtime.ts",
-    "nhttp/": "https://deno.land/x/nhttp@<VERSION>/lib/",
+    "@nhttp/nhttp": "jsr:@nhttp/nhttp@<VERSION>",
     "models/": "./models/",
     "views/": "./views/",
     "controllers/": "./controllers/",
     "components/": "./components/"
   },
   "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "nhttp"
+    "jsx": "react-jsx",
+    "jsxImportSource": "@nhttp/nhttp/jsx",
+    "experimentalDecorators": true,
+    "lib": [
+      "deno.window",
+      "dom"
+    ]
   }
 }

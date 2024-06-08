@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nhttp-land": "^<VERSION>",
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
@@ -20,6 +20,6 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "bun-types": "canary",
-    "esbuild": "^0.19.2"
+    "esbuild": "^0.21.4"
   }
 }

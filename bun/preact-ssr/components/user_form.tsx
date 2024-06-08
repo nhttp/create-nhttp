@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { type FunctionComponent as FC, type JSX } from "preact";
-import { withHydrate } from "hydrate";
-import "nhttp-land/jsx/twind";
+import { withHydrate } from "@nhttp/hydrate";
 
 export type User = {
   first_name: string;

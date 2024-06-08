@@ -1,4 +1,4 @@
-import { FC, Helmet } from "nhttp/jsx.ts";
+import { FC, Helmet } from "@nhttp/nhttp/jsx";
 
 const Layout: FC = (props) => {
   return (

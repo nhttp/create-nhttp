@@ -1,19 +1,24 @@
 {
   "compilerOptions": {
     "paths": {
-      "models/*": ["./models/*"],
-      "views/*": ["./views/*"],
-      "controllers/*": ["./controllers/*"],
-      "components/*": ["./components/*"]
+      "models/*": ["./src/models/*"],
+      "views/*": ["./src/views/*"],
+      "controllers/*": ["./src/controllers/*"],
+      "components/*": ["./src/components/*"]
     },
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "nhttp-land/jsx"
+    "jsxImportSource": "@nhttp/nhttp/jsx",
+    "outDir": "dist",
+    "skipLibCheck": true
   },
   "include": [
-    "./**/*"
+    "./src/**/*"
   ],
   "exclude": [
     "./node_modules/**/*",

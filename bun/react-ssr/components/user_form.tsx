@@ -1,6 +1,6 @@
 import { type FC, useEffect, useRef, useState } from "react";
-import { withHydrate } from "hydrate";
-import "nhttp-land/jsx/twind";
+import { withHydrate } from "@nhttp/hydrate";
+import "@nhttp/nhttp/jsx/twind";
 
 export type User = {
   first_name: string;

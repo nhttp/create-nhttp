@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nhttp-land": "^<VERSION>"
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>"
   },
   "devDependencies": {
     "bun-types": "canary"

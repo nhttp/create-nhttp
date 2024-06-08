@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Status, Wares } from "nhttp/controller.ts";
-import { csrf } from "nhttp/csrf.ts";
+import { Controller, Get, Post, Status, Wares } from "@nhttp/nhttp/controller";
+import { csrf } from "@nhttp/nhttp/csrf";
 import UserModel from "models/user_model.ts";
 import { UserView } from "views/user_view.tsx";
-import { RequestEvent } from "nhttp";
+import { type RequestEvent } from "@nhttp/nhttp";
 
 const users = [] as UserModel[];
 const csrfProtect = csrf({ cookie: true });
