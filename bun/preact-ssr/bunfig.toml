@@ -1,3 +1,2 @@
-[install]
-registry = "https://registry.npmjs.org"
-"@jsr:registry" = "https://npm.jsr.io"
+[install.scopes]
+"@jsr" = "https://npm.jsr.io"
