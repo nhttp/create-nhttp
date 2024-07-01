@@ -10,7 +10,7 @@ import denoTemplate from "./templates/deno.js";
 import nodeTemplate from "./templates/node.js";
 import bunTemplate from "./templates/bun.js";
 
-const NHTTP_VERSION = "2.0.0";
+const NHTTP_VERSION = "2.0.2";
 
 const RUNTIME_LIST = [
   {
@@ -212,6 +212,13 @@ export async function createProject(param, cwd) {
   const files = fs.readdirSync(templateDir);
   for (const file of files) {
     write(file);
+  }
+  if (runtimeName === "node") {
+    fs.writeFileSync(
+      path.join(root, ".npmrc"),
+      "@jsr:registry=https://npm.jsr.io",
+      { encoding: "utf-8" },
+    );
   }
   const targetPath = path.join(root, "note.txt");
   if (fs.existsSync(targetPath)) {
