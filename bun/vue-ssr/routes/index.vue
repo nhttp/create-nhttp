@@ -6,12 +6,8 @@
   </layout>
 </template>
 
-<script>
+<script setup>
 import Layout from "../components/layout.vue";
 import Counter from "../components/counter.vue";
 import UserForm from "../components/user_form.vue";
-
-export default {
-  components: { Layout, Counter, UserForm },
-};
 </script>

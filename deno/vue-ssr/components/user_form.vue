@@ -5,13 +5,12 @@
   </form>
 </template>
 
-<script>
-export default {
-  data: () => ({ name: '' }),
-  methods: {
-    submit() {
-      alert(`Hello, ${this.name}!`);
-    },
-  },
+<script setup>
+import { ref } from 'vue';
+
+const name = ref('');
+
+const submit = () => {
+  alert(`Hello, ${name.value}!`);
 };
 </script>

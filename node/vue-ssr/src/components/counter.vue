@@ -5,8 +5,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: () => ({ count: 0 }),
-};
+<script setup>
+import { ref } from 'vue';
+
+const count = ref(0);
 </script>
