@@ -27,7 +27,7 @@ deno run -Ar npm:create-nhttp
 - React SSR (React Server-Side-Rendering & partial-hydration).
 - Preact SSR (Preact Server-Side-Rendering & partial-hydration).
 - Svelte SSR <i>(soon...)</i>.
-- Vue SSR <i>(soon...)</i>.
+- Vue SSR (Vue Server-Side-Rendering & partial-hydration).
 
 ## License
 
