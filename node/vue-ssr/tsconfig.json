@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@nhttp/ssr": ["./src/_core/ssr.ts"],
+      "@nhttp/hydrate": ["./src/_core/hydrate.ts"],
+      "components/*": ["./src/components/*"]
+    },
+    "allowJs": true,
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "DOM.Iterable",
+      "ESNext"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules/**/*",
+    "**/*.spec.ts"
+  ]
+}

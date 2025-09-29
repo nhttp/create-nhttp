@@ -1,0 +1,16 @@
+Install Deps :
+  npm install
+
+Run Dev : 
+  npm run dev
+
+Run Build : 
+  npm run build
+
+Run Prod : 
+  npm run start
+
+Welcome to react-ssr (partial-hydration). hydrate your components only when you need. lookup url available :
+  GET http://localhost:8000/
+  GET http://localhost:8000/user
+  POST http://localhost:8000/api/user

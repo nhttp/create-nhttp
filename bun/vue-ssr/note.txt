@@ -1,0 +1,16 @@
+Install Deps :
+  bun install
+
+Run Dev : 
+  bun run dev
+
+Run Build : 
+  bun run build
+
+Run Prod : 
+  bun run start
+
+Welcome to react-ssr (partial-hydration). hydrate your components only when you need. lookup url available :
+  GET http://localhost:8000/
+  GET http://localhost:8000/user
+  POST http://localhost:8000/api/user

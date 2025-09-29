@@ -1,0 +1,28 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "vue-ssr template for nhttp",
+  "main": "dist/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false ./src/main.ts",
+    "build": "rimraf dist && tsc && resolve-tspaths && node dist/_core/ssr.js --build",
+    "start": "node ./dist/main.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.21",
+    "esbuild": "^0.21.4",
+    "esbuild-plugin-vue-next": "^0.1.4",
+    "glob": "^10.3.10",
+    "resolve-tspaths": "^0.8.19",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.11.2",
+    "typescript": "^5.4.5"
+  }
+}

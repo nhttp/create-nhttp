@@ -1,0 +1,24 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "vue-ssr template for nhttp",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run ./_core/dev.ts && bun run --watch main.ts --dev",
+    "build": "bun run ./_core/gen.ts && bun run ./_core/build.ts",
+    "start": "bun run main.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@nhttp/nhttp": "npm:@jsr/nhttp__nhttp@<VERSION>",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.21",
+    "bun-types": "canary",
+    "esbuild": "^0.21.4",
+    "esbuild-plugin-vue-next": "^0.1.4"
+  }
+}

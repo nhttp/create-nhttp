@@ -1,0 +1,21 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch main.ts",
+    "start": "deno run -A main.ts",
+    "build": "deno run -A _core/ssr.ts --build"
+  },
+  "imports": {
+    "@nhttp/nhttp": "jsr:@nhttp/nhttp@<VERSION>",
+    "vue": "https://esm.sh/vue@3.4.21",
+    "vue/server-renderer": "https://esm.sh/@vue/server-renderer@3.4.21",
+    "esbuild": "https://deno.land/x/esbuild@v0.21.4/mod.js",
+    "esbuild-plugin-vue-next": "https://esm.sh/esbuild-plugin-vue-next@0.1.4",
+    "glob": "https://deno.land/std@0.208.0/fs/glob.ts"
+  },
+  "fmt": {
+    "exclude": ["dist"]
+  },
+  "lint": {
+    "exclude": ["dist"]
+  }
+}
